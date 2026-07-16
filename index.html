@@ -260,12 +260,201 @@
     .footer-bottom .links { display: flex; gap: 1rem; }
     .footer-bottom a:hover { color: rgba(0,0,0,.7); }
 
+    /* ── Qualifier (multi-step form) ── */
+    .qualifier {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #f8f7f4;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      overflow-y: auto;
+    }
+    .qualifier.open { display: flex; }
+    .q-header { background: #fff; border-bottom: 1px solid var(--border); }
+    .q-header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .q-progress { height: 4px; background: #eceae6; width: 100%; }
+    .q-progress-bar { height: 100%; background: var(--gold); width: 0; transition: width .5s ease-in-out; }
+    .q-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+    .step-count {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .q-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-align: center;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      max-width: 700px;
+    }
+    .q-subtitle { color: var(--muted); font-size: 14px; text-align: center; margin-bottom: 2.5rem; }
+    .q-content { width: 100%; max-width: 32rem; }
+    .options-row { display: flex; flex-direction: column; gap: 1rem; }
+    .options-col { display: flex; flex-direction: column; gap: 12px; }
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .opt-btn {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 4px;
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: all .15s;
+    }
+    .opt-btn:hover { border-color: rgba(236,164,52,.4); }
+    .opt-btn.selected { border-color: var(--gold); background: rgba(236,164,52,.05); color: var(--gold); }
+    .field-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: rgba(3,2,19,.6);
+    }
+    .field label .req { color: var(--gold); }
+    .field input, .field textarea {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      transition: border-color .2s;
+    }
+    .field textarea { resize: none; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+    .q-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color .2s;
+    }
+    .back-btn:hover { color: var(--gold); }
+    .continue-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      padding: 12px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .continue-btn:hover:not(:disabled) { background: #c8881c; }
+    .continue-btn:disabled { background: #ececf0; color: var(--muted); cursor: not-allowed; }
+    .q-fineprint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 1rem; }
+    .q-error {
+      background: #fdecef;
+      border: 1px solid #d4183d;
+      color: #b3132f;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin-top: 1rem;
+      display: none;
+    }
+    .q-error.show { display: block; }
+    /* Success */
+    .q-success { flex: 1; display: none; align-items: center; justify-content: center; padding: 4rem 1rem; }
+    .q-success.show { display: flex; }
+    .q-success-card {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,.1);
+      padding: 56px 40px;
+      text-align: center;
+      max-width: 28rem;
+      width: 100%;
+    }
+    .q-success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .q-success-icon svg { width: 28px; height: 28px; }
+    .q-success h2 { font-size: 2rem; font-weight: 700; color: var(--blue); margin-bottom: 12px; }
+    .q-success p { color: var(--muted); font-size: 15px; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
+    .q-success .call-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      transition: background .2s;
+    }
+    .q-success .call-btn:hover { background: #c8881c; }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .header-inner { padding: 0 1rem; }
       .phone { font-size: 18px; }
       .card h1 { font-size: 1.65rem; }
       .footer-cols { gap: 2rem; margin-left: 0; }
+      .q-header-inner { padding: 0 1rem; }
+      .q-title { font-size: 1.6rem; }
+      .options-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -306,7 +495,7 @@
         We help tenants across California fight back against landlords who make their tenants endure unliveable conditions. You have rights and deserve a safe home — and you may be owed compensation.
       </p>
 
-      <a href="#contact" class="cta">See If You Qualify</a>
+      <button type="button" class="cta" id="openQualifier">See If You Qualify</button>
 
       <div class="divider">
         <div class="line"></div>
@@ -404,10 +593,264 @@
     </div>
   </footer>
 
+  <!-- ── Qualifier (multi-step form) ── -->
+  <div class="qualifier" id="qualifier">
+    <div class="q-header">
+      <div class="q-header-inner">
+        <a href="#" class="logo" id="qHome"><img src="logo.png" alt="Tenant Titans" /></a>
+        <a href="tel:8187457777" class="phone">(818) 745-7777</a>
+      </div>
+      <div class="q-progress"><div class="q-progress-bar" id="qProgress"></div></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="q-main" id="qMain">
+      <p class="step-count" id="qStepCount"></p>
+      <h1 class="q-title" id="qTitle"></h1>
+      <p class="q-subtitle" id="qSubtitle"></p>
+      <div class="q-content" id="qContent"></div>
+    </div>
+
+    <!-- Success -->
+    <div class="q-success" id="qSuccess">
+      <div class="q-success-card">
+        <div class="q-success-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2>We received your case.</h2>
+        <p id="qSuccessName">Thank you. A Block Law Habitability representative will reach out to you within 24 hours.</p>
+        <p>You deserve a safe home. If your matter is urgent, call us directly.</p>
+        <a href="tel:8187457777" class="call-btn">(818) 745-7777</a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Minimal hamburger toggle (nav is decorative for this test)
-    document.querySelector('.hamburger')?.addEventListener('click', function () {
-      alert('Mobile menu — nav links are placeholders for this test.');
+    /* ═══════════════════════════════════════════════════════════════
+       HUBSPOT CONFIG  ——  edit these two values
+       ─────────────────────────────────────────────────────────────
+       portalId : your HubSpot account ID (already filled in)
+       formGuid : create a form in HubSpot, then paste its GUID here.
+                  (Marketing → Forms → Create form → Publish →
+                   the GUID is in the form's embed/share code.)
+       ═══════════════════════════════════════════════════════════════ */
+    const HUBSPOT = {
+      portalId: "14523733",
+      formGuid: "PASTE_YOUR_FORM_GUID_HERE",
+    };
+
+    /* Map our question data -> HubSpot form field internal names.
+       - The 4 core fields exist on every HubSpot form by default.
+       - For the qualifier answers, ADD matching fields to your HubSpot
+         form, then fill in their internal names below. Leave a value as
+         "" to skip sending that answer. */
+    const FIELD_MAP = {
+      firstName:     "firstname",
+      lastName:      "lastname",
+      email:         "email",
+      phone:         "phone",
+      filingFor:     "",   // e.g. "filing_for"
+      issueType:     "",   // e.g. "issue_type"
+      description:   "",   // e.g. "message"
+      issueDuration: "",   // e.g. "issue_duration"
+      toldLandlord:  "",   // e.g. "told_landlord"
+    };
+
+    /* ─────────────────────────────────────────────────────────────── */
+
+    const STEPS = [
+      { title: "Who are you filling this out for?", subtitle: "Select the option that applies to you.", type: "choice", field: "filingFor", layout: "row", options: ["Myself", "My child / loved one"] },
+      { title: "What is the main issue in your unit?", subtitle: "Select the option that best describes your situation.", type: "choice", field: "issueType", layout: "grid", options: ["Rodent Infestation", "Roach Infestation", "Mold / Mildew", "HVAC Failure", "Pest Infestation", "Other"] },
+      { title: "Can you please describe the conditions, or issues?", subtitle: "Tell us about the conditions in your unit — the more detail, the better.", type: "textarea", field: "description" },
+      { title: "How long have you been experiencing issues?", subtitle: "Select the option that best applies to your situation.", type: "choice", field: "issueDuration", layout: "col", options: ["Less than a year", "Over one year", "More than 3 years"] },
+      { title: "Have you told your landlord?", subtitle: "Have you made your landlord aware of these conditions?", type: "choice", field: "toldLandlord", layout: "row", options: ["Yes", "No"] },
+      { title: "What is your name?", subtitle: "An intake representative will contact you at no charge at all.", type: "name" },
+      { title: "How can we reach you?", subtitle: "A Block Law representative will contact you shortly.", type: "contact" },
+    ];
+    const TOTAL = STEPS.length;
+
+    const form = { filingFor: "", issueType: "", description: "", issueDuration: "", toldLandlord: "", firstName: "", lastName: "", phone: "", email: "" };
+    let step = 1;
+
+    const el = (id) => document.getElementById(id);
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    function openQualifier() {
+      step = 1;
+      el("qualifier").classList.add("open");
+      el("qMain").style.display = "flex";
+      el("qSuccess").classList.remove("show");
+      document.body.style.overflow = "hidden";
+      render();
+    }
+    function closeQualifier() {
+      el("qualifier").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function validate() {
+      const s = STEPS[step - 1];
+      if (s.type === "choice") return !!form[s.field];
+      if (s.type === "textarea") return form.description.trim().length > 0;
+      if (s.type === "name") return form.firstName.trim() && form.lastName.trim();
+      if (s.type === "contact") return form.phone.trim() && /\S+@\S+\.\S+/.test(form.email);
+      return false;
+    }
+
+    function next() {
+      if (!validate()) return;
+      if (step < TOTAL) { step++; render(); }
+      else submit();
+    }
+    function back() {
+      if (step > 1) { step--; render(); }
+      else closeQualifier();
+    }
+
+    function render() {
+      const s = STEPS[step - 1];
+      el("qProgress").style.width = ((step - 1) / TOTAL) * 100 + "%";
+      el("qStepCount").textContent = `Step ${step} of ${TOTAL}`;
+      el("qTitle").textContent = s.title;
+      el("qSubtitle").textContent = s.subtitle;
+
+      let html = "";
+      if (s.type === "choice") {
+        const cls = s.layout === "grid" ? "options-grid" : s.layout === "col" ? "options-col" : "options-row";
+        html += `<div class="${cls}">`;
+        s.options.forEach((opt) => {
+          const sel = form[s.field] === opt ? " selected" : "";
+          html += `<button type="button" class="opt-btn${sel}" data-opt="${esc(opt)}">${esc(opt)}</button>`;
+        });
+        html += `</div>`;
+      } else if (s.type === "textarea") {
+        html += `<div class="field-card"><div class="field">
+          <label>Your description</label>
+          <textarea id="f_description" rows="5" placeholder="Describe the conditions in your unit — rodents seen, mold locations, HVAC not working, etc...">${esc(form.description)}</textarea>
+        </div></div>`;
+      } else if (s.type === "name") {
+        html += `<div class="field-card">
+          <div class="field"><label>First Name <span class="req">*</span></label><input id="f_firstName" type="text" placeholder="Jane" value="${esc(form.firstName)}" /></div>
+          <div class="field"><label>Last Name <span class="req">*</span></label><input id="f_lastName" type="text" placeholder="Smith" value="${esc(form.lastName)}" /></div>
+        </div>`;
+      } else if (s.type === "contact") {
+        html += `<div class="field-card">
+          <div class="field"><label>Phone Number <span class="req">*</span></label><input id="f_phone" type="tel" placeholder="(818) 000-0000" value="${esc(form.phone)}" /></div>
+          <div class="field"><label>Email Address <span class="req">*</span></label><input id="f_email" type="email" placeholder="jane@email.com" value="${esc(form.email)}" /></div>
+        </div>`;
+      }
+
+      // Navigation
+      const showBtn = s.type === "textarea" || s.type === "name" || s.type === "contact";
+      html += `<div class="q-nav">
+        <button type="button" class="back-btn" id="qBack">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          ${step === 1 ? "Back to home" : "Back"}
+        </button>
+        ${showBtn ? `<button type="button" class="continue-btn" id="qNext">${step === TOTAL ? "Submit My Claim" : "Continue"}${step < TOTAL ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>' : ""}</button>` : ""}
+      </div>`;
+
+      html += `<div class="q-error" id="qError"></div>`;
+      if (s.type === "contact") html += `<p class="q-fineprint">By submitting, you agree to be contacted by Block Law Habitability Division. All information is kept confidential.</p>`;
+
+      el("qContent").innerHTML = html;
+      wire(s);
+    }
+
+    function wire(s) {
+      // Choice buttons — select + auto-advance
+      el("qContent").querySelectorAll(".opt-btn").forEach((b) => {
+        b.addEventListener("click", () => {
+          form[s.field] = b.dataset.opt;
+          render();
+          setTimeout(next, 200);
+        });
+      });
+      // Inputs
+      ["description", "firstName", "lastName", "phone", "email"].forEach((f) => {
+        const input = el("f_" + f);
+        if (input) {
+          input.addEventListener("input", (e) => {
+            form[f] = e.target.value;
+            const nb = el("qNext");
+            if (nb) nb.disabled = !validate();
+          });
+        }
+      });
+      const nb = el("qNext");
+      if (nb) { nb.disabled = !validate(); nb.addEventListener("click", next); }
+      el("qBack").addEventListener("click", back);
+    }
+
+    function getCookie(name) {
+      const m = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)");
+      return m ? m.pop() : "";
+    }
+
+    async function submit() {
+      const btn = el("qNext");
+      const errBox = el("qError");
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting…"; }
+      if (errBox) errBox.classList.remove("show");
+
+      if (!HUBSPOT.formGuid || HUBSPOT.formGuid === "PASTE_YOUR_FORM_GUID_HERE") {
+        showError("Set your HubSpot Form GUID in the code (HUBSPOT.formGuid) to enable submissions.");
+        return;
+      }
+
+      // Build fields from the map (skip empty mappings / empty values)
+      const fields = [];
+      for (const key in FIELD_MAP) {
+        const name = FIELD_MAP[key];
+        const value = form[key];
+        if (name && value) fields.push({ name, value });
+      }
+
+      const payload = {
+        fields,
+        context: {
+          hutk: getCookie("hubspotutk") || undefined,
+          pageUri: location.href,
+          pageName: document.title,
+        },
+      };
+
+      const url = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.portalId}/${HUBSPOT.formGuid}`;
+      try {
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          el("qMain").style.display = "none";
+          el("qProgress").style.width = "100%";
+          el("qSuccessName").innerHTML = `Thank you, <strong>${esc(form.firstName)}</strong>. A Block Law Habitability representative will reach out to you within 24 hours.`;
+          el("qSuccess").classList.add("show");
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const msg = (data.errors && data.errors.map((e) => e.message).join("; ")) || data.message || `HubSpot returned ${res.status}`;
+          showError("Submission failed: " + msg);
+        }
+      } catch (e) {
+        showError("Network error reaching HubSpot: " + e.message);
+      }
+    }
+
+    function showError(msg) {
+      const errBox = el("qError");
+      if (errBox) { errBox.textContent = msg; errBox.classList.add("show"); }
+      const btn = el("qNext");
+      if (btn) { btn.disabled = false; btn.textContent = "Submit My Claim"; }
+    }
+
+    // Wire up triggers
+    el("openQualifier").addEventListener("click", openQualifier);
+    el("qHome").addEventListener("click", (e) => { e.preventDefault(); closeQualifier(); });
+    document.querySelector(".hamburger")?.addEventListener("click", () => {
+      alert("Mobile menu — nav links are placeholders for this test.");
     });
   </script>
 </body>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenant Titans — Habitability Division | Block Law</title>
+  <meta name="description" content="We help California tenants fight back against landlords who force them to endure unliveable conditions. Free, confidential consultation." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue: #3D6189;
+      --blue-dark: #2f4e6e;
+      --gold: #ECA434;
+      --border: rgba(0, 0, 0, 0.1);
+      --muted: #717182;
+      --text: #030213;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; }
+
+    .container { max-width: 1152px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo img { height: 48px; width: auto; object-fit: contain; }
+    .phone {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 24px;
+      -webkit-text-stroke: 1px currentColor;
+      transition: color .2s;
+    }
+    .phone:hover { color: var(--gold); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span { width: 20px; height: 2px; background: var(--text); display: block; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue);
+      padding: 2rem 1rem;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.55;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.3), rgba(0,0,0,.7));
+    }
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 28rem;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,.4);
+      padding: 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 16px; height: 16px; }
+    .review-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; }
+    .review-count { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .card h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .card p.body {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: .025em;
+      transition: background .2s;
+      text-align: center;
+    }
+    .cta:hover { background: var(--blue-dark); }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+    .divider .line { flex: 1; height: 1px; background: var(--border); }
+    .divider span {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-weight: 600;
+    }
+    .reasons { display: flex; flex-direction: column; gap: 10px; }
+    .reasons li { display: flex; align-items: flex-start; gap: 10px; }
+    .check {
+      margin-top: 2px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .check svg { width: 10px; height: 10px; }
+    .reasons span {
+      font-size: 13px;
+      color: rgba(3,2,19,.8);
+      line-height: 1.35;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Trust bar ── */
+    .trust {
+      background: var(--blue);
+      padding: 20px 1rem;
+    }
+    .trust-inner {
+      max-width: 1152px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(255,255,255,.75);
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #fff;
+      color: rgba(0,0,0,.7);
+      padding: 56px 1rem 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand { max-width: 220px; }
+    .footer-brand img { height: 28px; width: auto; object-fit: contain; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 12.5px; line-height: 1.6; margin-bottom: 1rem; }
+    .footer-brand .review-count { color: rgba(0,0,0,.5); font-size: 11px; margin-top: 4px; }
+    .footer-cols { display: flex; gap: 4rem; margin-left: auto; flex-wrap: wrap; }
+    .footer-cols h4 {
+      color: #000;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: 1rem;
+    }
+    .footer-cols ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-cols a { font-size: 13px; transition: color .2s; }
+    .footer-cols a:hover { color: var(--gold); }
+    .socials { display: flex; gap: 12px; margin-top: 1.5rem; }
+    .socials a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+    .socials a:hover { border-color: var(--gold); color: var(--gold); }
+    .socials svg { width: 14px; height: 14px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: rgba(0,0,0,.4);
+    }
+    .footer-bottom .links { display: flex; gap: 1rem; }
+    .footer-bottom a:hover { color: rgba(0,0,0,.7); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 1rem; }
+      .phone { font-size: 18px; }
+      .card h1 { font-size: 1.65rem; }
+      .footer-cols { gap: 2rem; margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo"><img src="logo.png" alt="Tenant Titans" /></a>
+      <a href="tel:8187457777" class="phone">(818) 745-7777</a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1780733065500-4284d227f58c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1920&q=80" alt="Legal professionals in consultation" />
+    <div class="hero-overlay"></div>
+
+    <div class="card">
+      <div class="review-row">
+        <div class="stars">
+          <!-- 5 gold stars -->
+          <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="review-count">300+ Google Reviews</span>
+      </div>
+
+      <h1>Are you living in uninhabitable conditions?</h1>
+
+      <p class="body">
+        We help tenants across California fight back against landlords who make their tenants endure unliveable conditions. You have rights and deserve a safe home — and you may be owed compensation.
+      </p>
+
+      <a href="#contact" class="cta">See If You Qualify</a>
+
+      <div class="divider">
+        <div class="line"></div>
+        <span>Why Choose Tenant Titans?</span>
+        <div class="line"></div>
+      </div>
+
+      <ul class="reasons">
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>No fees unless we win your case.</span>
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Free, confidential consultation.</span>
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>We fight for your right to safe housing.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Trust bar ── -->
+  <section class="trust">
+    <div class="trust-inner">
+      <div>Rodent Infestation</div>
+      <div>Roach Infestation</div>
+      <div>Mold &amp; Asbestos</div>
+      <div>HVAC Failure</div>
+      <div>Bed Bugs</div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Tenant Titans" />
+          <p>Block Law's Habitability Division fights for tenants living in unsafe conditions. Rodent infestations, mold, broken HVAC — your landlord has a legal duty to fix it. We hold them accountable.</p>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#ECA434" stroke="#ECA434"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-count">300+ Google Reviews</p>
+        </div>
+
+        <div class="footer-cols">
+          <div>
+            <h4>Firm</h4>
+            <ul>
+              <li><a href="#">Practice Areas</a></li>
+              <li><a href="#">Attorneys</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Our Results</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Accessibility</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <div class="socials">
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Block Law — Habitability Division. All rights reserved.</p>
+        <div class="links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal hamburger toggle (nav is decorative for this test)
+    document.querySelector('.hamburger')?.addEventListener('click', function () {
+      alert('Mobile menu — nav links are placeholders for this test.');
+    });
+  </script>
+</body>
+</html>

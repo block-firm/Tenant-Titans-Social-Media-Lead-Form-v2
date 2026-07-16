@@ -628,17 +628,10 @@
   </div>
 
   <script>
-    /* ═══════════════════════════════════════════════════════════════
-       HUBSPOT CONFIG  ——  edit these two values
-       ─────────────────────────────────────────────────────────────
-       portalId : your HubSpot account ID (already filled in)
-       formGuid : create a form in HubSpot, then paste its GUID here.
-                  (Marketing → Forms → Create form → Publish →
-                   the GUID is in the form's embed/share code.)
-       ═══════════════════════════════════════════════════════════════ */
+
     const HUBSPOT = {
       portalId: "14523733",
-      formGuid: "PASTE_YOUR_FORM_GUID_HERE",
+      formGuid: "58ea3f92-3f6e-4392-8ff6-6d70c1b00d3c",
     };
 
     /* Map our question data -> HubSpot form field internal names.
@@ -651,11 +644,11 @@
       lastName:      "lastname",
       email:         "email",
       phone:         "phone",
-      filingFor:     "",   // e.g. "filing_for"
-      issueType:     "",   // e.g. "issue_type"
-      description:   "",   // e.g. "message"
-      issueDuration: "",   // e.g. "issue_duration"
-      toldLandlord:  "",   // e.g. "told_landlord"
+      filingFor:     "who_are_you_filing_this_form_out_for_",
+      issueType:     "what_issues_are_you_having",
+      description:   "please_describe_the_conditions_and_or_issues_",
+      issueDuration: "how_long_have_you_been_experiencing_these_issues_",
+      toldLandlord:  "have_you_notified_your_landlord_",
     };
 
     /* ─────────────────────────────────────────────────────────────── */
